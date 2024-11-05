@@ -4,20 +4,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Audio a Texto</title>
   </head>
   <body>
     <div id="app">
-      <h2>Subir archivo de audio</h2>
-      <form id="audioForm">
-        <label for="audioFile">Escoger archivo:</label>
-        <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
-        <button type="submit">Subir Archivo</button>
-      </form>
-      <button id="generateButton">Generar Texto</button>
-      <button id="statusButton">Estado Texto</button>
-      <button id="transcriptionButton">Obtener Texto</button>
-      <p id="transcriptionText"></p>
+      <section id="optionsBox">
+        <h2>Subir archivo de audio</h2>
+        <form id="audioForm">
+          <label for="audioFile">Escoger archivo:</label>
+          <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
+          <button type="submit">Subir Archivo</button>
+          <p id="uploadedText" aria-live="polite" class="text-output"></p>
+        </form>
+        <button id="generateButton">Generar Texto</button>
+        <p id="generatedText" aria-live="polite" class="text-output"></p>
+        <button id="statusButton">Estado Texto</button>
+        <p id="statusText" aria-live="polite" class="text-output"></p>
+        <button id="transcriptionButton">Obtener Texto</button>
+      </section>
+      <section id="outputBox">
+        <h2>Texto transcrito:</h2>
+        <p id="transcriptionText" aria-live="polite" class="text-output"></p>
+      </section>
     </div>
     <script type="module" src="/main.js"></script>
   </body>

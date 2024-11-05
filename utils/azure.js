@@ -1,10 +1,6 @@
 const subscriptionKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
 const baseUrl = "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2";
-
-function getTranscriptionId(url) {
-  const parts = url.split("/");
-  return parts[parts.length - 1];
-}
+const containerUrl = import.meta.env.VITE_AZURE_STORAGE_URL;
 
 async function fetchFromAzure(url, options) {
   try {
@@ -36,7 +32,9 @@ export async function createTranscription(account, containerName, blobName, sasT
       displayFormWordLevelTimestampsEnabled: true,
       diarizationEnabled: false,
       punctuationMode: "DictatedAndAutomatic",
-      profanityFilterMode: "Masked"
+      profanityFilterMode: "Masked",
+      destinationContainerUrl: containerUrl,
+      timeToLive: "PT2H"
     }
   };
 
@@ -50,9 +48,7 @@ export async function createTranscription(account, containerName, blobName, sasT
   };
 
   const result = await fetchFromAzure(url, options);
-  const transcriptionId = getTranscriptionId(result.self);
-  console.log("Transcription created:", result);
-  return transcriptionId;
+  return result;
 }
 
 export async function getTranscriptionStatus(transcriptionId) {
@@ -65,7 +61,6 @@ export async function getTranscriptionStatus(transcriptionId) {
   };
 
   const result = await fetchFromAzure(url, options);
-  console.log("Transcription status:", result);
   return result;
 }
 
@@ -79,6 +74,5 @@ export async function getTranscriptionText(transcriptionId) {
   };
 
   const result = await fetchFromAzure(url, options);
-  console.log("Transcription result:", result);
   return result;
 }
