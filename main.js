@@ -12,6 +12,8 @@ const generatedText = document.getElementById('generatedText')
 const statusText = document.getElementById('statusText')
 const transcriptionText = document.getElementById('transcriptionText')
 
+alert('Hola, bienvenido a la aplicación de transcripción de audio. Por favor, sube un archivo de audio y presiona el botón "Generar Transcripción" para comenzar el proceso.')
+
 audioForm.addEventListener('submit', async (e) => {
   e.preventDefault()
   uploadedText.textContent = "Subiendo archivo..."
