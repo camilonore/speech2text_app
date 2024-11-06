@@ -22,6 +22,7 @@ audioForm.addEventListener('submit', async (e) => {
     console.log("File uploaded successfully", response.data)
     uploadedText.textContent = "Archivo Subido correctamente"
   } else {
+    uploadedText.textContent = "Error subiendo archivo"
     console.error("File upload failed:", response.error)
   }
 })
@@ -37,6 +38,7 @@ generateButton.addEventListener('click', async (e) => {
     console.log("Transcription ID:", transcriptionId)
     generatedText.textContent = "Transcripción iniciada"
   } else {
+    generatedText.textContent = "Error en la generación"
     console.error("Transcription failed:", response.error)
   }
 })
@@ -52,6 +54,7 @@ statusButton.addEventListener('click', async (e) => {
     console.log("Transcription status:", status)
     statusText.textContent = status
   } else {
+    statusText.textContent = "No se pudo obtener el estado"
     console.error("Transcription status failed:", response.error)
   }
 })
@@ -65,6 +68,7 @@ transcriptionButton.addEventListener('click', async (e) => {
     const textContent = response.data.combinedRecognizedPhrases[0].display
     transcriptionText.textContent = textContent
   } else {
+    transcriptionText.textContent = "Error obteniendo la transcripción"
     console.error("Transcription text failed:", response.error)
   }
 })

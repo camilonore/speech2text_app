@@ -19,7 +19,7 @@ const uploadFileToBlob = async (file) => {
 
 const handleTranscription = async (file) => {
   try {
-    const result = await createTranscription(account, containerName, file.name, sasToken)
+    const result = await createTranscription(account, containerName, file.name)
     return {'ok':true, data:result}
   } catch (error) {
     console.error("Transcription failed:", error.message)

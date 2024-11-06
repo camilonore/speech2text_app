@@ -34,7 +34,7 @@ html, body {
 }
 
 #optionsBox {
-  max-width: 40%;
+  min-width: 45%;
   height: fit-content;
 }
 #outputBox {
