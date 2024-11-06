@@ -21,7 +21,7 @@ html, body {
 #app {
   display: flex;
   gap: 2rem;
-  max-width: 80vw;
+  width: 80vw;
   padding: 2rem;
 }
 
@@ -34,11 +34,12 @@ html, body {
 }
 
 #optionsBox {
-  min-width: 45%;
+  width: 40%;
+  max-width: 40%;
   height: fit-content;
 }
 #outputBox {
-  width: 100%;
+  width: 60%;
 }
 
 h2 {
