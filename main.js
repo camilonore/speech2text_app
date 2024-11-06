@@ -28,6 +28,7 @@ audioForm.addEventListener('submit', async (e) => {
 })
 
 generateButton.addEventListener('click', async (e) => {
+  console.log("Generating transcription...")
   e.preventDefault()
   generatedText.textContent = "Cargando..."
   const file = audioFile.files[0]
