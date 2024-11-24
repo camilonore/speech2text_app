@@ -22,7 +22,7 @@ export async function createTranscription(account, containerName, blobName, sasT
   const urlContent = `${account}/${containerName}/${blobName}?${sasToken}`;
   const requestBody = {
     contentUrls: [urlContent],
-    locale: "en-US",
+    locale: "es-CO",
     displayName: "My Transcription",
     model: {
       self: `${baseUrl}/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950`
